@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Tip Time</string>
+    <string name="title_text">Tip Time</string>
+    <string name="total">Total</string>
+    <string name="tip">Tip</string>
+    <string name="per_person">Per Person</string>
     <string name="cost_of_service">Cost of Service</string>
-    <string name="how_was_the_service">How was the service?</string>
-    <string name="amazing_service">Amazing (20%)</string>
-    <string name="good_service">Good (18%)</string>
-    <string name="ok_service">Okay (15%)</string>
+    <string name="number_of_people">Number of people</string>
+    <string name="zero_percent">0%</string>
+    <string name="ten_percent">10%</string>
+    <string name="fifteen_percent">15%</string>
+    <string name="twenty_percent">20%</string>
     <string name="round_up_tip">Round up tip?</string>
     <string name="calculate">Calculate</string>
-    <string name="tip_amount">Tip Amount: %s</string>
+
+    <string name="null_text">---</string>
 </resources>
