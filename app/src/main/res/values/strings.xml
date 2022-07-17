@@ -12,6 +12,6 @@
     <string name="twenty_percent">20%</string>
     <string name="round_up_tip">Round up tip?</string>
     <string name="calculate">Calculate</string>
-
+    <string name="empty_values">Fields cannot be empty or null</string>
     <string name="null_text">---</string>
 </resources>

@@ -1,326 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bejussi.tiptime.TipViewModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="@dimen/top_margin_height"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            android:text="@string/title_text"
-            android:textColor="@color/black"
-            android:textSize="@dimen/main_text_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintBottom_toBottomOf="@+id/title_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/title_text" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:weightSum="3"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/block_height"
-            android:layout_marginTop="@dimen/block_top_margin_height"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            android:padding="@dimen/left_right_margin_height"
-            android:background="@drawable/block_design"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_text"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/top_margin_height"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                android:text="@string/title_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/main_text_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_menu"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintBottom_toBottomOf="@+id/title_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title_text" />
 
             <LinearLayout
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:id="@+id/linearLayout"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/block_height"
+                android:layout_marginTop="@dimen/block_top_margin_height"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                android:padding="@dimen/left_right_margin_height"
+                android:background="@drawable/block_design"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_text"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/block_text_margin_height"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="@string/total"
-                    android:textColor="@color/block_text"
-                    android:textSize="@dimen/min_text_height" />
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/total_result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="@string/null_text"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/main_text_height" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/block_text_margin_height"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/total"
+                        android:textColor="@color/block_text"
+                        android:textSize="@dimen/min_text_height" />
+
+                    <TextView
+                        android:id="@+id/total_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="@{viewModel.formatPrice(viewModel.total)}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/main_text_height" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/block_text_margin_height"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/tip"
+                        android:textColor="@color/block_text"
+                        android:textSize="@dimen/min_text_height" />
+
+                    <TextView
+                        android:id="@+id/tip_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="@{viewModel.formatPrice(viewModel.tip)}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/main_text_height" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/block_text_margin_height"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/per_person"
+                        android:textColor="@color/block_text"
+                        android:textSize="@dimen/min_text_height" />
+
+                    <TextView
+                        android:id="@+id/per_person_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="@{viewModel.formatPrice(viewModel.perPerson)}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/main_text_height" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_weight="1"
-                android:orientation="vertical"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/block_bottom_margin_height"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/cost_of_service"
+                android:textSize="@dimen/medium_text_height"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <EditText
+                android:id="@+id/cost_of_service"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:layout_marginTop="@dimen/edit_text_margin_top"
+                android:inputType="numberDecimal"
+                android:paddingStart="@dimen/edit_text_padding"
+                android:paddingEnd="@dimen/edit_text_padding"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/number_of_people_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/input_text_margin_height"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/number_of_people"
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium_text_height"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cost_of_service" />
+
+            <EditText
+                android:id="@+id/number_of_people"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_user"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:layout_marginTop="@dimen/edit_text_margin_top"
+                android:textColor="@color/black"
+                android:text="1"
+                android:inputType="numberDecimal"
+                android:paddingStart="@dimen/edit_text_padding"
+                android:paddingEnd="@dimen/edit_text_padding"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_people_textView" />
+
+            <TextView
+                android:id="@+id/tip_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/input_text_margin_height"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/tip"
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium_text_height"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_people" />
+
+            <RadioGroup
+                android:id="@+id/tip_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/option_twenty_percent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tip_textView">
+
+                <RadioButton
+                    android:id="@+id/option_zero_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/radio_padding_left_right"
+                    android:paddingRight="@dimen/radio_padding_left_right"
+                    android:paddingTop="@dimen/radio_padding_top_bottom"
+                    android:paddingBottom="@dimen/radio_padding_top_bottom"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_selector"
+                    android:textSize="@dimen/min_text_height"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@drawable/text_radio_color"
+                    android:text="@string/zero_percent" />
+
+                <RadioButton
+                    android:id="@+id/option_ten_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/radio_margin_left"
+                    android:paddingLeft="@dimen/radio_padding_left_right"
+                    android:paddingRight="@dimen/radio_padding_left_right"
+                    android:paddingTop="@dimen/radio_padding_top_bottom"
+                    android:paddingBottom="@dimen/radio_padding_top_bottom"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_selector"
+                    android:textSize="@dimen/min_text_height"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@drawable/text_radio_color"
+                    android:text="@string/ten_percent" />
+
+                <RadioButton
+                    android:id="@+id/option_fifteen_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/radio_margin_left"
+                    android:paddingLeft="@dimen/radio_padding_left_right"
+                    android:paddingRight="@dimen/radio_padding_left_right"
+                    android:paddingTop="@dimen/radio_padding_top_bottom"
+                    android:paddingBottom="@dimen/radio_padding_top_bottom"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_selector"
+                    android:textSize="@dimen/min_text_height"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@drawable/text_radio_color"
+                    android:text="@string/fifteen_percent" />
+
+                <RadioButton
+                    android:id="@+id/option_twenty_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/radio_margin_left"
+                    android:paddingLeft="@dimen/radio_padding_left_right"
+                    android:paddingRight="@dimen/radio_padding_left_right"
+                    android:paddingTop="@dimen/radio_padding_top_bottom"
+                    android:paddingBottom="@dimen/radio_padding_top_bottom"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_selector"
+                    android:textSize="@dimen/min_text_height"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@drawable/text_radio_color"
+                    android:text="@string/twenty_percent" />
+
+            </RadioGroup>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/round_up_switch"
                 android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/block_text_margin_height"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="@string/tip"
-                    android:textColor="@color/block_text"
-                    android:textSize="@dimen/min_text_height" />
-
-                <TextView
-                    android:id="@+id/tip_result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="@string/null_text"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/main_text_height" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/block_text_margin_height"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="@string/per_person"
-                    android:textColor="@color/block_text"
-                    android:textSize="@dimen/min_text_height" />
-
-                <TextView
-                    android:id="@+id/per_person_result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="@string/null_text"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/main_text_height" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/block_bottom_margin_height"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/cost_of_service"
-            android:textSize="@dimen/medium_text_height"
-            android:textColor="@color/black"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-        <EditText
-            android:id="@+id/cost_of_service"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_height"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/ic_money"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:layout_marginTop="@dimen/edit_text_margin_top"
-            android:inputType="numberDecimal"
-            android:paddingStart="@dimen/edit_text_padding"
-            android:paddingEnd="@dimen/edit_text_padding"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/number_of_people_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/input_text_margin_height"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/number_of_people"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_height"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cost_of_service" />
-
-        <EditText
-            android:id="@+id/number_of_people"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_height"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/ic_user"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:layout_marginTop="@dimen/edit_text_margin_top"
-            android:textColor="@color/black"
-            android:text="1"
-            android:inputType="numberDecimal"
-            android:paddingStart="@dimen/edit_text_padding"
-            android:paddingEnd="@dimen/edit_text_padding"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/number_of_people_textView" />
-
-        <TextView
-            android:id="@+id/tip_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/input_text_margin_height"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/tip"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_height"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/number_of_people" />
-
-        <RadioGroup
-            android:id="@+id/tip_options"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkedButton="@id/option_twenty_percent"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/button_margin_top"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tip_textView">
-
-            <RadioButton
-                android:id="@+id/option_zero_percent"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/radio_padding_left_right"
-                android:paddingRight="@dimen/radio_padding_left_right"
-                android:paddingTop="@dimen/radio_padding_top_bottom"
-                android:paddingBottom="@dimen/radio_padding_top_bottom"
-                android:button="@android:color/transparent"
-                android:background="@drawable/radio_selector"
-                android:textSize="@dimen/min_text_height"
+                android:layout_marginTop="@dimen/max_margin_height"
+                android:checked="true"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@drawable/text_radio_color"
-                android:text="@string/zero_percent" />
+                android:text="@string/round_up_tip"
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium_text_height"
+                app:track="@drawable/track"
+                android:thumb="@drawable/trumb"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tip_options" />
 
-            <RadioButton
-                android:id="@+id/option_ten_percent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/radio_margin_left"
-                android:paddingLeft="@dimen/radio_padding_left_right"
-                android:paddingRight="@dimen/radio_padding_left_right"
-                android:paddingTop="@dimen/radio_padding_top_bottom"
-                android:paddingBottom="@dimen/radio_padding_top_bottom"
-                android:button="@android:color/transparent"
-                android:background="@drawable/radio_selector"
-                android:textSize="@dimen/min_text_height"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculate_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginLeft="@dimen/left_right_margin_height"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:layout_marginRight="@dimen/left_right_margin_height"
+                android:layout_marginBottom="@dimen/left_right_margin_height"
+                android:background="@drawable/button_design"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@drawable/text_radio_color"
-                android:text="@string/ten_percent" />
+                android:text="@string/calculate"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text_height"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/round_up_switch" />
 
-            <RadioButton
-                android:id="@+id/option_fifteen_percent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/radio_margin_left"
-                android:paddingLeft="@dimen/radio_padding_left_right"
-                android:paddingRight="@dimen/radio_padding_left_right"
-                android:paddingTop="@dimen/radio_padding_top_bottom"
-                android:paddingBottom="@dimen/radio_padding_top_bottom"
-                android:button="@android:color/transparent"
-                android:background="@drawable/radio_selector"
-                android:textSize="@dimen/min_text_height"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@drawable/text_radio_color"
-                android:text="@string/fifteen_percent" />
-
-            <RadioButton
-                android:id="@+id/option_twenty_percent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/radio_margin_left"
-                android:paddingLeft="@dimen/radio_padding_left_right"
-                android:paddingRight="@dimen/radio_padding_left_right"
-                android:paddingTop="@dimen/radio_padding_top_bottom"
-                android:paddingBottom="@dimen/radio_padding_top_bottom"
-                android:button="@android:color/transparent"
-                android:background="@drawable/radio_selector"
-                android:textSize="@dimen/min_text_height"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@drawable/text_radio_color"
-                android:text="@string/twenty_percent" />
-
-        </RadioGroup>
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/round_up_switch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/max_margin_height"
-            android:checked="true"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/round_up_tip"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_height"
-            app:track="@drawable/track"
-            android:thumb="@drawable/trumb"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tip_options" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/calculate_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginLeft="@dimen/left_right_margin_height"
-            android:layout_marginTop="@dimen/button_margin_top"
-            android:layout_marginRight="@dimen/left_right_margin_height"
-            android:layout_marginBottom="@dimen/left_right_margin_height"
-            android:background="@drawable/button_design"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/calculate"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_height"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/round_up_switch" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
