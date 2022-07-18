@@ -14,4 +14,5 @@
     <string name="calculate">Calculate</string>
     <string name="empty_values">Fields cannot be empty or null</string>
     <string name="null_text">---</string>
+    <string name="format_price">%.1f</string>
 </resources>

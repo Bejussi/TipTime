@@ -78,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_semibold"
-                        android:text="@{viewModel.formatPrice(viewModel.total)}"
+                        android:text="@{@string/format_price(viewModel.total)}"
                         android:textColor="@color/white"
                         android:textSize="@dimen/main_text_height" />
 
@@ -104,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_semibold"
-                        android:text="@{viewModel.formatPrice(viewModel.tip)}"
+                        android:text="@{@{@string/format_price(viewModel.tip)}"
                         android:textColor="@color/white"
                         android:textSize="@dimen/main_text_height" />
 
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_semibold"
-                        android:text="@{viewModel.formatPrice(viewModel.perPerson)}"
+                        android:text="@{@string/format_price(viewModel.perPerson)}"
                         android:textColor="@color/white"
                         android:textSize="@dimen/main_text_height" />
 
